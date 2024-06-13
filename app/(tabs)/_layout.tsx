@@ -28,7 +28,25 @@ export default function TabLayout() {
         options={{
           title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'menu' : 'menu-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="patrouille"
+        options={{
+          title: 'Patrouille',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'leaf' : 'leaf-outline'} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          tabBarIcon: ({ color, focused }) => (
+            <TabBarIcon name={focused ? 'settings' : 'settings-outline'} color={color} />
           ),
         }}
       />

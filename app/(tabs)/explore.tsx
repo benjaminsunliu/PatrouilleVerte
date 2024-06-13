@@ -10,79 +10,67 @@ import { ThemedView } from '@/components/ThemedView';
 export default function TabTwoScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
-      headerImage={<Ionicons size={310} name="code-slash" style={styles.headerImage} />}>
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={<Ionicons size={310} name="map" style={styles.headerImage} />}>
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
-      <ThemedText>This app includes example code to help you get started.</ThemedText>
-      <Collapsible title="File-based routing">
+      <ThemedText>Pour en savoir plus sur l'Éco-Quartier:</ThemedText>
+      <Collapsible title="À propos du REQ">
         <ThemedText>
-          This app has two screens:{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+        Le Regroupement des éco-quartiers est composé des organismes à but non lucratif promoteurs du programme Éco-quartier mais aussi d'autres programmes environnementaux. Ce regroupement favorise le développement et le rayonnement du programme Éco-quartier de même que la mise en commun d’outils et de pratiques d’intervention dans le domaine de l’éducation relative à l’environnement.
         </ThemedText>
-        <ThemedText>
-          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
-          sets up the tab navigator.
-        </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/router/introduction">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://www.eco-quartiers.org/presentation">
+          <ThemedText type="link">Lire Plus</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Android, iOS, and web support">
+      <Collapsible title="Patrouille Bleue">
         <ThemedText>
-          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
-          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+          Initiée par le Service de l’eau de la Ville de Montréal en 2010, la Patrouille bleue est coordonnée par le Regroupement des éco-quartiers (REQ) depuis sa création. La Patrouille bleue a pour mandats de sensibiliser les citoyen.ne.s et de favoriser leur implication en matière de gestion durable et responsable des eaux.
         </ThemedText>
-      </Collapsible>
-      <Collapsible title="Images">
-        <ThemedText>
-          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
-          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
-          different screen densities
-        </ThemedText>
-        <Image source={require('@/assets/images/react-logo.png')} style={{ alignSelf: 'center' }} />
-        <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Learn more</ThemedText>
+        <Image source={require('@/assets/images/patrouillebleue.webp')} style={{ alignSelf: 'center'}} />
+        <ExternalLink href="https://www.eco-quartiers.org/patrouille-bleue">
+          <ThemedText type="link">Lire Plus</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Custom fonts">
+      <Collapsible title="Patrouille Verte">
         <ThemedText>
-          Open <ThemedText type="defaultSemiBold">app/_layout.tsx</ThemedText> to see how to load{' '}
-          <ThemedText style={{ fontFamily: 'SpaceMono' }}>
-            custom fonts such as this one.
-          </ThemedText>
+        La Patrouille verte, c'est quoi ? De juin à août, cette brigade de sensibilisation environnementale informe et sensibilise aux enjeux environnementaux de même qu'aux pratiques écoresponsables près de 40 000 citoyen.ne.s par année. La soixantaine d'agent.e.s de la Patrouille verte vise, par le biais d'une sensibilisation positive, à encourager et aider les citoyen.ne.s à devenir des acteur.trice.s de changement dans leur milieu de vie.  
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/versions/latest/sdk/font">
-          <ThemedText type="link">Learn more</ThemedText>
+        <Image source={require('@/assets/images/patrouille-logo.png')} style={{ alignSelf: 'center'}} />
+        <ExternalLink href="https://www.eco-quartiers.org/patrouilleverte">
+          <ThemedText type="link">Lire Plus</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Light and dark mode components">
+      <Collapsible title="Dépliants de la Ville">
         <ThemedText>
-          This template has light and dark mode support. The{' '}
-          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
-          what the user's current color scheme is, and so you can adjust UI colors accordingly.
+          Pour en savoir plus sur les services de la Ville de Montréal, consultez les dépliants suivants:
         </ThemedText>
-        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
-          <ThemedText type="link">Learn more</ThemedText>
+        <ExternalLink href="https://www.eco-quartiers.org/d%C3%A9pliants-de-la-ville">
+          <ThemedText type="link">Lire Plus</ThemedText>
         </ExternalLink>
       </Collapsible>
-      <Collapsible title="Animations">
+      <Collapsible title="Communiqués">
         <ThemedText>
-          This template includes an example of an animated component. The{' '}
-          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
-          the powerful <ThemedText type="defaultSemiBold">react-native-reanimated</ThemedText> library
-          to create a waving hand animation.
+          Pour consulter les derniers communiqués du REQ, cliquez sur le lien suivant:
         </ThemedText>
-        {Platform.select({
-          ios: (
-            <ThemedText>
-              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
-              component provides a parallax effect for the header image.
-            </ThemedText>
-          ),
-        })}
+        <ExternalLink href="https://www.eco-quartiers.org/communiques">
+          <ThemedText type="link">Lire Plus</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="Suivez Nous">
+      <ExternalLink href="https://fr-ca.facebook.com/regroupementeq/">
+          <ThemedText type="link"><Image source={require('@/assets/images/facebook.webp')} style={styles.logo} /></ThemedText>
+      </ExternalLink>
+      <ExternalLink href="https://www.instagram.com/regroupementeq/">
+          <ThemedText type="link"><Image source={require('@/assets/images/insta.png')} style={styles.logo} /></ThemedText>
+      </ExternalLink>
+      <ExternalLink href="https://fr.linkedin.com/company/regroupement-des-%C3%A9co-quartiers">
+          <ThemedText type="link"><Image source={require('@/assets/images/linkedin.webp')} style={styles.logo} /></ThemedText>
+      </ExternalLink>
+      <ExternalLink href="https://www.youtube.com/channel/UC_U_pKqHe1Qz_yqpZj5ae1w">
+          <ThemedText type="link"><Image source={require('@/assets/images/Youtube.webp')} style={styles.logo} /></ThemedText>
+      </ExternalLink>
       </Collapsible>
     </ParallaxScrollView>
   );
@@ -90,7 +78,7 @@ export default function TabTwoScreen() {
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: '#067a9f',
     bottom: -90,
     left: -35,
     position: 'absolute',
@@ -98,5 +86,11 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     gap: 8,
+  },
+  logo: {
+    width: 70,
+    height: 70,
+    alignSelf: 'center',
+    flexDirection: 'row',
   },
 });
