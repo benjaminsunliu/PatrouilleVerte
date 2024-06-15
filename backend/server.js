@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
 const app = express();
-const PORT = 5050;
+const PORT = process.env.PORT || 5050;
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
