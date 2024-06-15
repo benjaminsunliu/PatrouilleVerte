@@ -11,20 +11,65 @@ import DateTimePicker from 'react-native-ui-datepicker';
 import dayjs from 'dayjs';
 import RNDateTimePicker from '@react-native-community/datetimepicker';
 import DynamicForm from '@/components/DynamicForm';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Patrouille = () => {
   const [showGMR, setShowGMR] = useState(false);
   const [showEAU, setShowEAU] = useState(false);
   const [showFORET, setShowFORET] = useState(false);
+  const [quartier, setQuartier] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchQuartier = async () => {
+      try {
+        const savedQuartier = await AsyncStorage.getItem('selectedQuartier');
+        if (savedQuartier) {
+          setQuartier(savedQuartier);
+        }
+      } catch (error) {
+        Alert.alert('Error', 'Failed to load quartier');
+      }
+    };
+
+    fetchQuartier();
+  }, []);
 
   const refreshGMR = async () => {
     setShowGMR(false);
     alert('Refreshing, please wait...');
-    await axios.get('http://localhost:5050/fetchgmrndg');
-    alert('GMR updated');
+    if (quartier) {
+      await axios.get(`http://localhost:5050/fetchgmr${quartier}`);
+      alert('GMR updated');
+    } else {
+      alert('Quartier is not set');
+    }
     setShowGMR(false);
     setShowGMR(true);
-  }
+  };
+  const refreshEAU = async () => {
+    setShowEAU(false);
+    alert('Refreshing, please wait...');
+    if (quartier) {
+      await axios.get(`http://localhost:5050/fetcheau${quartier}`);
+      alert('EAU updated');
+    } else {
+      alert('Quartier is not set');
+    }
+    setShowEAU(false);
+    setShowEAU(true);
+  };
+  const refreshFORET = async () => {
+    setShowFORET(false);
+    alert('Refreshing, please wait...');
+    if (quartier) {
+      await axios.get(`http://localhost:5050/fetchforet${quartier}`);
+      alert('FORET updated');
+    } else {
+      alert('Quartier is not set');
+    }
+    setShowFORET(false);
+    setShowFORET(true);
+  };
 
   return (
     <ParallaxScrollView
@@ -40,11 +85,12 @@ const Patrouille = () => {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Choisissez le Mandat:</ThemedText>
       </ThemedView>
+      <ThemedText type="subtitle">Éco-Quartier: {quartier?.toUpperCase()}</ThemedText>
       
       {/*GMR Form*/} 
       <ThemedView style={styles.stepContainer}>
         <Collapsible title="GMR" collapsed={!showGMR} onToggle={() => setShowGMR(!showGMR)}>
-          <DynamicForm apiEndpoint='http://localhost:5050/gmrndg'/>
+          <DynamicForm apiEndpoint={`http://localhost:5050/gmr${quartier}`}/>
           <Button title='Refresh' onPress={refreshGMR}/>
         </Collapsible>
       </ThemedView>
@@ -52,7 +98,8 @@ const Patrouille = () => {
       {/*EAU Form*/}
       <ThemedView style={styles.stepContainer}>
           <Collapsible title="EAU" collapsed={!showEAU} onToggle={() => setShowEAU(!showEAU)}>
-            <DynamicForm apiEndpoint='http://localhost:5050/eaundg'/>
+            <DynamicForm apiEndpoint={`http://localhost:5050/eau${quartier}`}/>
+            <Button title='Refresh' onPress={refreshEAU}/>
           </Collapsible>
       </ThemedView>
 
@@ -60,8 +107,8 @@ const Patrouille = () => {
       {/*FORET Form*/}
       <ThemedView style={styles.stepContainer}>
           <Collapsible title="FORET" collapsed={!showFORET} onToggle={() => setShowFORET(!showFORET)}>
-              
-            <Button title='Submit'/>
+            <DynamicForm apiEndpoint={`http://localhost:5050/foret${quartier}`}/>
+            <Button title='Refresh' onPress={refreshFORET}/>
           </Collapsible>
       </ThemedView>
     </ParallaxScrollView>
