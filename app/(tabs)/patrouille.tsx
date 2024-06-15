@@ -38,7 +38,7 @@ const Patrouille = () => {
     setShowGMR(false);
     alert('Refreshing, please wait...');
     if (quartier) {
-      await axios.get(`http://localhost:5050/fetchgmr${quartier}`);
+      await axios.get(`https://patrouilleverte.onrender.com/fetchgmr${quartier}`);
       alert('GMR updated');
     } else {
       alert('Quartier is not set');
@@ -50,7 +50,7 @@ const Patrouille = () => {
     setShowEAU(false);
     alert('Refreshing, please wait...');
     if (quartier) {
-      await axios.get(`http://localhost:5050/fetcheau${quartier}`);
+      await axios.get(`https://patrouilleverte.onrender.com/fetcheau${quartier}`);
       alert('EAU updated');
     } else {
       alert('Quartier is not set');
@@ -62,7 +62,7 @@ const Patrouille = () => {
     setShowFORET(false);
     alert('Refreshing, please wait...');
     if (quartier) {
-      await axios.get(`http://localhost:5050/fetchforet${quartier}`);
+      await axios.get(`https://patrouilleverte.onrender.com/fetchforet${quartier}`);
       alert('FORET updated');
     } else {
       alert('Quartier is not set');
@@ -90,7 +90,7 @@ const Patrouille = () => {
       {/*GMR Form*/} 
       <ThemedView style={styles.stepContainer}>
         <Collapsible title="GMR" collapsed={!showGMR} onToggle={() => setShowGMR(!showGMR)}>
-          <DynamicForm apiEndpoint={`http://localhost:5050/gmr${quartier}`}/>
+          <DynamicForm apiEndpoint={`https://patrouilleverte.onrender.com/gmr${quartier}`}/>
           <Button title='Refresh' onPress={refreshGMR}/>
         </Collapsible>
       </ThemedView>
@@ -98,7 +98,7 @@ const Patrouille = () => {
       {/*EAU Form*/}
       <ThemedView style={styles.stepContainer}>
           <Collapsible title="EAU" collapsed={!showEAU} onToggle={() => setShowEAU(!showEAU)}>
-            <DynamicForm apiEndpoint={`http://localhost:5050/eau${quartier}`}/>
+            <DynamicForm apiEndpoint={`https://patrouilleverte.onrender.com/eau${quartier}`}/>
             <Button title='Refresh' onPress={refreshEAU}/>
           </Collapsible>
       </ThemedView>
@@ -107,7 +107,7 @@ const Patrouille = () => {
       {/*FORET Form*/}
       <ThemedView style={styles.stepContainer}>
           <Collapsible title="FORET" collapsed={!showFORET} onToggle={() => setShowFORET(!showFORET)}>
-            <DynamicForm apiEndpoint={`http://localhost:5050/foret${quartier}`}/>
+            <DynamicForm apiEndpoint={`https://patrouilleverte.onrender.com/foret${quartier}`}/>
             <Button title='Refresh' onPress={refreshFORET}/>
           </Collapsible>
       </ThemedView>

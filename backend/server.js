@@ -1,14 +1,11 @@
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const { google } = require('googleapis');
 const app = express();
 const PORT = process.env.PORT || 5050;
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -318,91 +315,7 @@ async function setFORETForm(dropdownId, FORETForm) {
 }
 
 app.get('/', async (req, res) => {
-    GMRFormAHC = await setGMRForm(ahcId, GMRFormAHC);
-    setTimeout(() => {
-        console.log('GMR form AHC set');
-    }, 1000);
-    GMRFormBEA = await setGMRForm(beaId, GMRFormBEA);
-    setTimeout(() => {
-        console.log('GMR form BEA set');
-    }, 1000);
-    GMRFormDOR = await setGMRForm(dorId, GMRFormDOR);
-    setTimeout(() => {
-        console.log('GMR form DOR set');
-    }, 1000);
-    GMRFormMHM = await setGMRForm(mhmId, GMRFormMHM);
-    setTimeout(() => {
-        console.log('GMR form MHM set');
-    }, 1000);
-    GMRFormLACH = await setGMRForm(lachId, GMRFormLACH);
-    setTimeout(() => {
-        console.log('GMR form LACH set');
-    }, 1000);
-    GMRFormLASA = await setGMRForm(lasaId, GMRFormLASA);
-    setTimeout(() => {
-        console.log('GMR form LASA set');
-    }, 1000);
-    GMRFormSUDO = await setGMRForm(sudoId, GMRFormSUDO);
-    setTimeout(() => {
-        console.log('GMR form SUDO set');
-    }, 1000);
-    GMRFormMTLND = await setGMRForm(mtlndId, GMRFormMTLND);
-    setTimeout(() => {
-        console.log('GMR form MTLND set');
-    }, 1000);
-    GMRFormOUTR = await setGMRForm(outrId, GMRFormOUTR);
-    setTimeout(() => {
-        console.log('GMR form OUTR set');
-    }, 1000);
-    GMRFormPTMC = await setGMRForm(ptmcId, GMRFormPTMC);
-    setTimeout(() => {
-        console.log('GMR form PTMC set');
-    }, 1000);
-    GMRFormPROX = await setGMRForm(proxId, GMRFormPROX);
-    setTimeout(() => {
-        console.log('GMR form PROX set');
-    }, 1000);
-    GMRFormPMR = await setGMRForm(pmrId, GMRFormPMR);
-    setTimeout(() => {
-        console.log('GMR form PMR set');
-    }, 1000);
-    GMRFormRDP = await setGMRForm(rdpId, GMRFormRDP);
-    setTimeout(() => {
-        console.log('GMR form RDP set');
-    }, 1000);
-    GMRFormROSE = await setGMRForm(roseId, GMRFormROSE);
-    setTimeout(() => {
-        console.log('GMR form ROSE set');
-    }, 1000);
-    GMRFormSLEO = await setGMRForm(sleoId, GMRFormSLEO);
-    setTimeout(() => {
-        console.log('GMR form SLEO set');
-    }, 1000);
-    GMRFormSTMAR = await setGMRForm(stmarId, GMRFormSTMAR);
-    setTimeout(() => {
-        console.log('GMR form STMAR set');
-    }, 1000);
-    GMRFormVERD = await setGMRForm(verdId, GMRFormVERD);
-    setTimeout(() => {
-        console.log('GMR form VERD set');
-    }, 1000);
-    GMRFormVMR = await setGMRForm(vmrId, GMRFormVMR);
-    setTimeout(() => {
-        console.log('GMR form VMR set');
-    }, 1000);
-    GMRFormSMICH = await setGMRForm(smichId, GMRFormSMICH);
-    setTimeout(() => {
-        console.log('GMR form SMICH set');
-    }, 1000);
-    GMRFormNDG = await setGMRForm(ndgId, GMRFormNDG);
-    setTimeout(() => { 
-        console.log('GMR form NDG set');
-    }, 1000);
-    GMRFormCDN = await setGMRForm(cdnId, GMRFormCDN);
-    setTimeout(() => {
-        console.log('GMR form CDN set');
-    }, 1000);
-    res.send({ message: 'Data fetched successfully' });
+    res.send('Welcome to Patrouille Verte API!');
 });
 
 
