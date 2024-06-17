@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Button, ActivityIndicator, TextInput, Alert, StyleSheet } from 'react-native';
+import { View, Text, Button, ActivityIndicator, TextInput, Alert, StyleSheet, Platform} from 'react-native';
 import axios from 'axios';
 import { Dropdown } from 'react-native-element-dropdown';
-import RNDateTimePicker from '@react-native-community/datetimepicker';
+import RNDateTimePicker, { DateTimePickerAndroid } from '@react-native-community/datetimepicker';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
 interface FormProps {
@@ -137,7 +137,7 @@ const DynamicForm: React.FC<FormProps> = ({ apiEndpoint }) => {
   }
 
   const renderComponent = (key: string) => {
-    if (key.toLowerCase().includes('date')) {
+    if (key.toLowerCase().includes('date') && Platform.OS === 'ios') {
       return (
         <RNDateTimePicker
           mode="date"
@@ -151,6 +151,28 @@ const DynamicForm: React.FC<FormProps> = ({ apiEndpoint }) => {
         />
       );
     }
+    if (key.toLowerCase().includes('date') && Platform.OS === 'android') {
+        return (
+            <View>
+          <Button
+            onPress={() => {
+              DateTimePickerAndroid.open({
+                value: dateValues[key] || new Date(),
+                onChange: (event, selectedDate) => {
+                  const currentDate = selectedDate || new Date();
+                  setDateValues((prevDates) => ({ ...prevDates, [key]: currentDate }));
+                  handleInputChange(key, currentDate);
+                },
+                mode: 'date',
+                is24Hour: true,
+              });
+            }}
+            title={`Selected Date: ${(dateValues[key] || new Date()).toDateString()}`}
+          />
+        </View>
+        );
+      }
+
     if (dropdownData[key] && dropdownData[key].length > 0) {
       return (
         <Dropdown
