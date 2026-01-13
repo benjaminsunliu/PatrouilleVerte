@@ -1,50 +1,124 @@
-# Welcome to your Expo app 👋
+# 🌿 Patrouille Verte — Mobile Application
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+> Cross‑platform mobile app built for **Regroupement des Éco‑Quartiers (REQ), Montréal** to modernize data collection for the Patrouille Verte environmental program.
 
-## Get started
+This project was **fully designed, developed, and delivered** by me (idea → UX → frontend → backend → deployment → user onboarding), and used by field agents.
 
-1. Install dependencies
+## 📰 Recognition
+- Featured in the official REQ Annual Report (2024): [View the report](https://www.eco-quartiers.org/_files/ugd/87ef24_1e81a2239f684f97a84a6cc10f1d78f7.pdf#page=12)
 
-   ```bash
-   npm install
-   ```
+---
 
-2. Start the app
+## 📱 Overview
 
-   ```bash
-    npx expo start
-   ```
+Patrouille Verte is a mobile application that helps environmental agents collect structured data in the field and automatically sync it to Google Sheets for reporting. The app replaces manual processes, improves data consistency, and simplifies daily workflows for patrol teams.
 
-In the output, you'll find options to open the app in a
+The application also includes an informational section for users to learn more about the REQ and its initiatives.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
 
-When you're ready, run:
+## ✨ Features
+
+### Home & Explore
+
+* Information about the REQ
+* Links to official resources (About, Programs, Flyers, Communications, Socials, Contact)
+
+### Patrouille (Data Collection)
+
+* Dynamic forms (fields update automatically based on Google Sheets configuration)
+* Mandate selection: **GMR / Eau / Forêt**
+* Smart dropdown detection vs free‑text entry
+* Address concatenation logic (e.g., GMR, EAU, FORÊT formats)
+* District (Éco‑quartier) selection linked to correct report sheet
+* Automatic submission to centralized reporting spreadsheets
+
+### Settings
+
+* Select Éco‑Quartier (saved locally)
+* Simple configuration for non‑technical users
+
+### Planned / Future Improvements
+
+* Offline mode (no connection required during patrols)
+* Additional forms
+* Simplified static fields
+* Time sheet integration
+* Authenticated login for agents
+
+---
+
+## 🧑‍💻 Tech Stack
+
+* **Frontend:** React Native
+* **Backend / Integration:** NodeJS, Google Sheets API
+* **Cloud & Services:** Azure
+* **Deployment:** CI/CD via GitHub Actions → Azure Web App
+* **Platform:** iOS & Android
+
+---
+
+## 🎥 Demo
+
+An easel board of the mobile app is available here:
+
+> *[Easel Board](https://arc.net/e/8BFDFD2D-8EF2-4BDE-9C20-C4FDA95529EE)*
+
+> ![Easel](screenshots/Easel.png)
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="screenshots/Snapshot.png" width="800" />
+  <img src="screenshots/Form.png" width="800" />
+</p>
+
+---
+
+## 🚀 Installation (Developer Setup)
 
 ```bash
-npm run reset-project
+# Install dependencies
+npm install
+
+# Run the app
+npm start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+> Requires React Native environment configured (Android Studio / Xcode).
 
-## Learn more
+---
 
-To learn more about developing your project with Expo, look at the following resources:
+## 📦 Deployment
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Deployment is handled automatically via **GitHub Actions** to Azure Web App on each push to `master`.
 
-## Join the community
+CI/CD includes:
 
-Join our community of developers creating universal apps.
+* Build
+* Test
+* Artifact packaging
+* Secure Azure deployment using OIDC login
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 📈 Impact
+
+* Replaced manual and inconsistent data collection
+* Reduced reporting errors
+* Improved adoption by non‑technical field agents
+* Used in real municipal environmental operations
+
+---
+
+## 🤝 Acknowledgements
+
+Built for:
+**Regroupement des Éco‑Quartiers (REQ), Montréal**
+Municipal environmental organization funded by the City of Montréal.
+
+> This project represents a real-world, end‑to‑end software delivery: product thinking, stakeholder communication, technical architecture, implementation, and deployment.
